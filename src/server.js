@@ -1,7 +1,13 @@
 // @ts-check
-import { createServer, IncomingMessage, ServerResponse } from "http"
+const servers = {}
+import { createServer as http, IncomingMessage, ServerResponse } from "http"
+import { createServer as https } from "https"
+import { createServer as http2 } from "http2"
 import { Context } from "./context.js"
 import { Route } from "./route.js"
+servers["http"] = http
+servers["https"] = https
+servers["http2"] = http2
 
 /**
  * @typedef {import("./types").Answer} Answer
@@ -16,15 +22,14 @@ export class Server {
     #middlewares = []
 
     /**
-     * @param {number} port 
+     * @param {number} port
      */
     constructor(port) {
-        createServer((req, res) => this.listener(req, res)).listen(port)
+        servers["http"]((req, res) => this.listener(req, res)).listen(port)
     }
 
     /**
-     * @public
-     * @param {Path} path 
+     * @param {Path} path
      * @param {Handler} handler 
      * @returns {Server}
      */
@@ -34,7 +39,6 @@ export class Server {
     }
 
     /**
-     * @public
      * @param {Path} path 
      * @param {Handler} handler 
      * @returns {Server}
@@ -44,7 +48,6 @@ export class Server {
     }
 
     /**
-     * @public
      * @param {Path} path 
      * @param {Handler} handler 
      * @returns {Server}
@@ -54,7 +57,6 @@ export class Server {
     }
 
     /**
-     * @public
      * @param {Path} path 
      * @param {Handler} handler 
      * @returns {Server}
@@ -64,7 +66,6 @@ export class Server {
     }
 
     /**
-     * @public
      * @param {Path} path 
      * @param {Handler} handler 
      * @returns {Server}
@@ -74,7 +75,6 @@ export class Server {
     }
 
     /**
-     * @public
      * @param {Path} path 
      * @param {Handler} handler 
      * @returns {Server}
@@ -84,7 +84,6 @@ export class Server {
     }
 
     /**
-     * @public
      * @param {Path} path 
      * @param {Handler} handler 
      * @returns {Server}
@@ -94,7 +93,6 @@ export class Server {
     }
 
     /**
-     * @public
      * @param {Path} path 
      * @param {Handler} handler 
      * @returns {Server}
@@ -104,7 +102,6 @@ export class Server {
     }
 
     /**
-     * @public
      * @param {Path} path 
      * @param {Handler} handler 
      * @returns {Server}

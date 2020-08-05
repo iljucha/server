@@ -7,7 +7,7 @@ export default true
  */
 
 /**
- * @typedef {string} Answer
+ * @typedef {string | Buffer} Answer
  */
 
 /**
