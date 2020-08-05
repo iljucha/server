@@ -2,28 +2,29 @@
   "author": {
     "name": "Ilja Bituzki"
   },
+  "bugs": {
+    "url": "https://github.com/iljucha/server/issues"
+  },
   "bundleDependencies": false,
   "deprecated": false,
   "description": "Server",
+  "homepage": "https://github.com/iljucha/server#readme",
   "keywords": [
     "web",
     "http",
     "server",
     "framework"
   ],
-  "bugs": {
-    "url": "https://github.com/iljucha/server/issues"
-  },
+  "license": "ISC",
+  "main": "src/index.js",
+  "name": "@iljucha/server",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/iljucha/server.git"
   },
-  "license": "ISC",
-  "main": "src/index.js",
-  "name": "@iljucha/server",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
-  "version": "0.0.15"
+  "version": "0.0.17"
 }
